@@ -1,0 +1,18 @@
+﻿@model Student
+
+<h2>Detail Of @Model.Name</h2>
+<div>
+    <h5 style="color:#c8c0c0">@Model.Id</h5>
+    <h5 style="color:#c8c0c0">@Model.Name</h5>
+    <h5 style="color:#c8c0c0">@Model.Dept</h5>
+    <h5 style="color:#c8c0c0">@Model.Email</h5>
+    <h5 style="color:#c8c0c0">@Model.Address</h5>
+    <h5 style="color:#c8c0c0">@Model.ContactNo</h5>
+    <h5 style="color:#c8c0c0">@Model.Cv</h5>
+</div>
+
+<div>
+    <a href="/Student/AllStudent" class="btn btn-warning"><span class="glyphicon glyphicon-circle-arrow-left"></span>Back to Students List</a>
+    <a href="/Student/DeleteStudent?Id=@Model.Id" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+    <a href="/Student/EditStudent?Id=@Model.Id" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-warning-sign"></span>Edit</a>
+</div>

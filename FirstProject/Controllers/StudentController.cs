@@ -27,6 +27,35 @@ namespace FirstProject.Controllers
             ViewBag.Messege = "new Student Added Successfullly";
             return View();
         }
+        public IActionResult AllStudent()
+        {
+            IList<Student> AllStudent = ORM.Student.ToList<Student>();
+            return View(AllStudent);
+        }
+        [HttpGet]
+        public IActionResult EditStudent(int Id)
+        {
+            Student S = ORM.Student.Where(m => m.Id == Id).FirstOrDefault<Student>();
+            return View(S);
+        }
+        [HttpPost]
+        public IActionResult EditStudent(Student S)
+        {
+            ORM.Student.Update(S);
+            ORM.SaveChanges();
+            return RedirectToAction("AllStudent");
+        }
+        public IActionResult DetailStudent(int Id)
+        {
+            Student S = ORM.Student.Where(m => m.Id == Id).FirstOrDefault<Student>();
+            return View(S);
+        }
+        public IActionResult DeleteStudent(Student S)
+        {
+            ORM.Student.Remove(S);
+            ORM.SaveChanges();
+            return RedirectToAction("AllStudent");
+        }
         public IActionResult AddTeacher()
         {
             return View();

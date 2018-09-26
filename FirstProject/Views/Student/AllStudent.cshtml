@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<Student>
+
+<h2>All Student</h2>
+<table class="table table-responsive table-bordered  alert-success table-striped">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Dept</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>ContactNo</td>
+            <td>Option</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student S in Model)
+        {
+            <tr>
+                <td>@S.Id</td>
+                <td>@S.Name</td>
+                <td>@S.Dept</td>
+                <td>@S.Email</td>
+                <td>@S.Address</td>
+                <td>@S.ContactNo</td>
+                <td>
+                    <a href="EditStudent?id=@S.Id" class="btn btn-success">Edit</a>
+                    <a href="DetailStudent?Id=@S.Id" class="btn btn-warning">Detail</a>
+                    <a href="DeleteStudent?Id=@S.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
