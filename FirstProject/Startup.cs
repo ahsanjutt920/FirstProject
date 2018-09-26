@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using FirstProject.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FirstProject.Models;
 
 namespace FirstProject
 {
@@ -37,6 +38,11 @@ namespace FirstProject
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<FprojectContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("MyDb")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
