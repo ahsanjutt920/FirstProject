@@ -1,7 +1,13 @@
-﻿
+﻿  
 @model IEnumerable<Student>
 
 <h2>All Student</h2>
+<form>
+    <input type="text"class="form-horizontal" id="SearchByName" name="SearchByName" placeholder="SearchByName" />
+    <input type="Submit"class="btn btn-success btn-sm" value="Search" />
+    <input type="text" id="SearchByDept" class="form-horizontal" name="SearchByDept" placeholder="SearchByDept" />
+    <input type="Submit"  class="btn btn-success btn-sm"value="Search" /><br/><br/>
+</form>
 <table class="table table-responsive table-bordered  alert-success table-striped">
     <thead>
         <tr>
@@ -11,6 +17,7 @@
             <td>Email</td>
             <td>Address</td>
             <td>ContactNo</td>
+            <td>Cv</td>
             <td>Option</td>
         </tr>
     </thead>
@@ -24,6 +31,7 @@
                 <td>@S.Email</td>
                 <td>@S.Address</td>
                 <td>@S.ContactNo</td>
+                <td>@S.Cv</td>
                 <td>
                     <a href="EditStudent?id=@S.Id" class="btn btn-success">Edit</a>
                     <a href="DetailStudent?Id=@S.Id" class="btn btn-warning">Detail</a>
@@ -32,4 +40,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table >

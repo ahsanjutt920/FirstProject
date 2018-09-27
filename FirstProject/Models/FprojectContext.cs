@@ -18,14 +18,14 @@ namespace FirstProject.Models
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-HQ3GDM0;DataBase=Fproject;Trusted_Connection=True; User ID=sa; Password=ahsan;");
-            }
-        }
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Server=DESKTOP-HQ3GDM0;DataBase=Fproject;Trusted_Connection=True; User ID=sa; Password=ahsan;");
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,9 @@ namespace FirstProject.Models
                     .HasColumnName("Contact_No")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Cv).HasMaxLength(50);
+                entity.Property(e => e.Cv)
+                .HasColumnName("Cv")
+                .HasMaxLength(250);
 
                 entity.Property(e => e.Dept).HasMaxLength(50);
 

@@ -4,23 +4,26 @@
 
 @if (ViewBag.Messege != null && ViewBag.Messege != "")
 {
-    <h1 class=" alert alert-warning"><span class="glyphicon glyphicon-ok-sign">@ViewBag.Messege</span></h1>
+    <h1 class=" alert alert-warning"><span class="glyphicon glyphicon">@ViewBag.Messege</span></h1>
 }
-<form method="post">
-    <label>Name:</label>
-    <input type="text" name="Name" placeholder="Name" class="form form-control" />
+    <form method="post" enctype="multipart/form-data">
+        <label>Name:</label>
+        <input type="text" name="Name" id="Name"placeholder="Name" class="form form-control" />
 
-    <label>Dept:</label>
-    <input type="text" name="Dept" placeholder="Dept" class="form form-control" />
+        <label>Dept:</label>
+        <input type="text" name="Dept" id="Dept" placeholder="Dept" class="form form-control" />
 
-    <label>Email:</label>
-    <input type="email" name="Email" class="form form-control" placeholder="Email" />
+        <label>Email:</label>
+        <input type="email" name="Email" id="Email" class="form form-control" placeholder="Email" />
 
-    <label>Address:</label>
-    <input type="text" name="Address" class="form form-control" placeholder="Address" />
+        <label>Address:</label>
+        <input type="text" name="Address" id="Address" class="form form-control" placeholder="Address" />
 
-    <label>ContractNo:</label>
-    <input type="number" name="Contact No" class="form form-control" placeholder="Contact No" /><br />
+        <label>ContractNo:</label>
+        <input type="number" name="ContactNo" id="ContactNo" class="form form-control" placeholder="Contact No" /><br />
 
-    <input type="submit" value="Add Details" />
-</form>
+        <label>Upload CV:</label>
+        <input type="file" name="CV1" id="CV1" class="form form-control" placeholder="Upload Cv" /><br />
+
+        <input type="submit" value="Add Details" />
+    </form>
