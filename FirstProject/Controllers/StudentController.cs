@@ -74,9 +74,9 @@ namespace FirstProject.Controllers
             return View(AllStudent);
         }
         [HttpPost]
-        public IActionResult AllStudent(String SearchByName, String SearchByDept)
+        public IActionResult AllStudent(String SearchByName, String SearchByDept ,String SearchByAddress)
         {
-            IList<Student> AllStudent = ORM.Student.Where(m => m.Name.Contains(SearchByName) || m.Dept.Contains(SearchByDept)).ToList<Student>();
+            IList<Student> AllStudent = ORM.Student.Where(m => m.Name.Contains(SearchByName) || m.Dept.Contains(SearchByDept) || m.Address.Contains(SearchByName)).ToList<Student>();
             return View(AllStudent);
         }
         [HttpGet]
