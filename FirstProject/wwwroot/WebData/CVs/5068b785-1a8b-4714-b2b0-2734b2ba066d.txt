@@ -1,0 +1,5 @@
+ [HttpPost]
+        public IActionResult AllStudent(string SearchByName,String SearchByDept,SearchByDept)
+        {
+            return View();
+        }

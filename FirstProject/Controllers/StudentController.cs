@@ -79,6 +79,21 @@ namespace FirstProject.Controllers
             IList<Student> AllStudent = ORM.Student.Where(m => m.Name.Contains(SearchByName) || m.Dept.Contains(SearchByDept) || m.Address.Contains(SearchByName)).ToList<Student>();
             return View(AllStudent);
         }
+        public string Deletestudentajax(Student S)
+        {
+            string result = "";
+            try
+            {
+                ORM.Student.Remove(S);
+                ORM.SaveChanges();
+                result = "Yes";
+            }
+            catch (Exception ex)
+            {
+                result = "No";
+            }
+            return result;
+        }
         [HttpGet]
         public IActionResult EditStudent(int Id)
         {
@@ -103,7 +118,8 @@ namespace FirstProject.Controllers
             ORM.SaveChanges();
             return RedirectToAction("AllStudent");
         }
-        public IActionResult AddTeacher()
+       
+     public IActionResult AddTeacher()
         {
             return View();
         }

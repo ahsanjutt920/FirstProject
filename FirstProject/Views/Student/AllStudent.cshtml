@@ -1,4 +1,4 @@
-﻿  
+﻿
 @model IEnumerable<Student>
 
 <h2>All Student</h2>
@@ -11,7 +11,7 @@
     <input type="Submit" class="btn btn-success btn-sm" value="Search" />
     <br /><br />
 </form>
-<table class="table table-responsive table-bordered  alert-success table-striped">
+<table class="table  table-bordered  alert-success table-striped">
     <thead>
         <tr>
             <td>Id</td>
@@ -43,4 +43,47 @@
             </tr>
         }
     </tbody>
-</table >
+</table>
+
+
+@section Scripts
+    {
+    <script>
+
+        $(function () {
+
+
+
+
+            $('.DeleteStudent').click(function () {
+                var clickedbutton = $(this);
+                var studentid = $(this).data("studentid");
+                $(this).text("Please wait");
+                $.ajax({
+                    url: "/student/deletestudentajax",
+                    type:"POST",
+                    data: {
+                        Id: studentid,
+                        Email: "a@a.com"
+                    },
+                    complete: function (myresult) {
+
+
+
+                        if (myresult.responseText == "Yes") {
+                            clickedbutton.parent().parent().addClass("danger");
+                            clickedbutton.parent().parent().fadeOut(3000);
+                        } else {
+                            alert("Please try again");
+                        }
+                    }
+                });
+
+
+            });
+        });
+
+    </script>
+
+
+}
